@@ -1,0 +1,560 @@
+:root {
+    /* Colors */
+    --color-text: #fff;
+    --color-primary: #576cbc;
+    --color-secondary: #19376d;
+    --color-dark: #0b2447;
+    --color-bg: #04152d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Outfit", Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+a, ul {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+/* Port class */
+.port {
+    font-weight: 900;
+}
+
+/* Navbar styles */
+.navbar {
+    width: 45%;
+    border-radius: 25px;
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 10px;
+    left: 50%; /* Centering */
+    transform: translateX(-50%); /* Centering */
+    z-index: 5;
+}
+
+.navbar a {
+    color: var(--color-text);
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li {
+    display: inline-block;
+}
+
+.navbar ul li a {
+    color: var(--color-text);
+    padding: 10px 15px;
+}
+
+.navbar ul li a:hover {
+    background-color: var(--color-secondary);
+    border-radius: 15px;
+}
+
+/* Responsive Styles */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+@media (max-width: 1210px) {
+    .navbar{
+        position: absolute;
+    }
+    .navbar ul {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: var(--color-primary);
+        flex-direction: column;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+}
+
+/*hero section styling*/
+
+#hero{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10em auto;
+    width: 90%;
+    border-radius: 20px;
+    min-height: 300px;
+    height: auto;
+    background-color: var(--color-secondary);
+}
+
+.intro{
+    margin: 20px;
+    text-align: center;
+    max-width: 60%;
+
+}
+.intro h1{
+    font-size: 4.5em;
+    font-weight: 900;
+    /*size adjusted below for responsivemess*/
+}
+
+.intro p{
+    font-size: 1.5em;
+    margin: 20px;
+}
+
+.intro a{
+    margin-top: 10px;
+    padding: 10px 30px;
+    border-radius: 25px;
+    color: #fff;
+    background-color: var(--color-primary);
+    font-weight: 900;
+    font-size: larger;
+}
+
+.hero-pic img{
+    width: 25vw;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@media (max-width: 1210px) {
+    .intro p{
+        text-align: left;
+        width: 100%
+    }
+}
+
+
+@keyframes floating {
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 15px);
+    }
+    100% {
+      transform: translate(0, -0px);
+    }
+  }
+  
+
+/* Shared styles for .try and .try2 */
+@keyframes background-pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.6; /* Slightly increased opacity */
+    }
+    50% {
+        transform: scale(1); /* Subtle pulse */
+        opacity: 1; /* Full opacity */
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0.6; /* Slightly increased opacity */
+    }
+}
+
+.try, .try2 {
+    position: absolute;
+    border-radius: 764px;
+    background: rgba(25, 55, 109, 0.7);
+    filter: blur(100px);
+    z-index: -1;
+    animation: background-pulse 8s ease-in-out infinite;
+    animation-fill-mode: forwards;
+}
+
+/* Styles specific to .try */
+.try {
+    width: 50vw;
+    height: 50vw;
+    min-width: 350px;
+    top: -128px;
+    left: -10vw;
+}
+
+/* Styles specific to .try2 */
+.try2 {
+    width: 60vw;
+    height: 40vw;
+    min-width: 250px;
+    top: 240px;
+    right: 0vw;
+    animation-delay: 4s;
+}
+
+@media (max-width: 1210px) {
+    .intro h1{
+        font-size: 2.5em;
+    }    
+
+    #hero{
+        justify-content: center;
+    }
+
+    .hero-pic img{
+        min-width: 20em;
+    }
+
+    .try, .try2{
+        display: none;
+    }
+    
+}
+
+#about{
+  position: relative;
+  background-color: rgba(12, 12, 12, 0.6);
+  border-radius: 15px;
+  padding: 70px;
+  margin: 129px 10% 50px 10%;
+  text-align: center;
+}
+
+#about h2{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+#about li{
+    margin: 20px;
+    padding: 50px ;
+    background-image: linear-gradient( 90deg, rgba(165, 215, 232, 0.42) 0%, rgba(255, 255, 255, 0.263) 100% );
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+     transition: 0.4s;
+    border-radius: 20px;
+    font-size: 1.5625em;
+    border: 1px solid var(--color-secondary);
+    box-shadow: 0 0 5px var(--color-secondary);
+}
+
+#about li:hover{
+    background-size: 100% 100%;
+}
+
+@media (max-width: 1210px) {
+    #about{
+        margin: 129px 0 50px 0;
+        width: 100%;
+        padding: 5px;
+    }
+    #about li{
+        background-size: 100%;
+    }
+}
+
+
+/*skill section*/
+#skill{
+    margin: 100px 0;
+}
+
+#skill h2{
+    text-align: center;
+    font-size: 2rem;
+}
+
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+   /* background-color: var(--color-primary);*/
+   margin: 4em 0;
+}
+
+.slider img{
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+ }
+
+.slide-track {
+    display: flex;
+    width: calc(250px * 9); /* 8 images, change based on the number of images */
+    animation: scroll 40s linear infinite;
+}
+
+.slide {
+    width: 250px;
+    height: auto;
+    flex-shrink: 0;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: var(--color-secondary);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.slide-track img:hover {
+    background-color: #fff;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/*56564565*/
+
+.skill_list{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+   /* background-color: #fff;*/
+    margin: 10px auto;
+    justify-content: center;
+}
+
+/* Flip card container */
+.flip-card {
+    width: 500px;
+    height: 500px;
+    perspective: 1000px;
+    cursor: pointer; 
+    margin: 10px auto;
+}
+.flip-card li{
+    margin: 15px;
+}
+
+/* Flip card inner structure */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Flip on click using the active class */
+.flip-card.active .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and back faces of the card */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    color: white;
+    font-size: 2em;
+}
+
+/* Front face styling */
+.flip-card-front {
+    /*background-color: #576cbc;*/
+    background: #8E2DE2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.flip-card-front:hover{
+    box-shadow: 0 0 15px white;
+}
+
+/* Back face styling */
+.flip-card-back {
+    background-color: #19376d;
+    transform: rotateY(180deg);
+}
+
+
+/*project section*/
+#project{
+    margin-top: 10em;
+    text-align: center;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+
+
+.projects-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.8em;
+    color: #fff;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(255, 255, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 500px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 4px solid orangered; /*here*/
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;    /*change*/
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .image-container img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.card-content p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.card-content ul{
+    list-style-type: disc;
+    color: #000;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/*contact section*/
+#Contact{
+    width: 100%;
+    height: auto;
+    /*background-color: #4A00E0;*/
+    background: linear-gradient(to right, #4A00E0, #8E2DE2);
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;; 
+}
+
+#Contact h2 {
+    font-size: 50px;
+    margin: 1rem;
+}
+
+#Contact div{
+    margin: 5px;
+}
+.mail_btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #220954;
+    color: #fff;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.mail p{
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.phone {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.phone i {
+    margin-right: 8px; 
+    color: greenyellow;
+    font-size: 2em;
+}
+
+.copyright {
+    font-size: 1.1rem;
+}
